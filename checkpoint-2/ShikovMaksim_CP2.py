@@ -1,4 +1,4 @@
-"""#Задание 1
+#Задание 1
 user_year = int(input("Введите ваш год рождения:"))
 year_now = 2025
 years_now = year_now - user_year
@@ -17,8 +17,12 @@ else:
 start_cord = int(input("Введите исходные координаты: "))
 print("Исходное число:", start_cord)
 print("Побитывай сдвиг влево на 2 (10 << 2):", start_cord<<2)
-print("Побитовый сдвиг в право на 1 (10 >> 1):", start_cord>>1)"""
+print("Побитовый сдвиг в право на 1 (10 >> 1):", start_cord>>1, "\n")
 
 #Задание 4
 sys_reg = int(input("Введите значение системного регистра: "))
 sys_byt = int(input("Введите номер бита для проверки: "))
+if sys_reg &(1<<sys_byt):
+    print("Бит", sys_byt, "установлен (1)")
+else:
+    print("Бит", sys_byt, "сброшен (0)")
