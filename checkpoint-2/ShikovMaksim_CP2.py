@@ -16,7 +16,7 @@ else:
 if shield_energy &(1<<0) == 0:
     print("Щит активен")
 else:
-    print("Щит не активен")
+    print("Щит не активен", end=("\n\n"))
 
 #Задание 3
 start_cord = int(input("Введите исходные координаты: "))
