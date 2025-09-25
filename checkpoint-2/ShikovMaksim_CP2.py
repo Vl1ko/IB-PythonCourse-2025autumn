@@ -11,7 +11,12 @@ shield_energy = int(input("Введиет уровень энергии: "))
 if shield_energy % 2 == 0:
     print("Щит активен")
 else:
-    print("Щит не активен", end=("\n\n"))
+    print("Щит не активен")
+
+if shield_energy &(1<<0) == 0:
+    print("Щит активен")
+else:
+    print("Щит не активен")
 
 #Задание 3
 start_cord = int(input("Введите исходные координаты: "))
