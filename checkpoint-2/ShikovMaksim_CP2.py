@@ -6,13 +6,14 @@ years_after = years_now + 10
 print("Ваш текущий возвраст:", years_now)
 print("Через 10 лет вам будет:", years_after, end=("\n\n"))
 
-#Задание 2
+#Задание 2.1
 shield_energy = int(input("Введиет уровень энергии: "))
 if shield_energy % 2 == 0:
     print("Щит активен")
 else:
-    print("Щит не активен")
+    print("Щит не активен", end=("\n\n"))
 
+#Задание 2.2
 if shield_energy &(1<<0) == 0:
     print("Щит активен")
 else:
