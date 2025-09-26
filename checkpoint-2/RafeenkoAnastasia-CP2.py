@@ -10,9 +10,9 @@ print(f"Через 10 лет вам будет: {age_after}","\n")
 # Задание 2
 energy = int(input("Введите целое число: "))
 if energy % 2 == 0:
-    print(f"Число {energy} является четным.")
+    print(f"Щит {energy} активен.")
 else:
-    print(f"Число {energy} является нечетным.","\n")
+    print(f"Щит {energy} отключен","\n")
 
 # Задание 3 
 num = int(input("Введите исходные координаты:"))
