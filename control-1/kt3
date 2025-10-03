@@ -1,0 +1,99 @@
+#Задание 1
+a = int(input("Введите первое число: "))
+b = int(input("Введите второе число: "))
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)
+
+#Задание 2
+age = int(input("Введите свой возраст: "))
+if age >= 18:
+    med = input("Есть ли медицинская справка? (да/нет): ")
+    med = str.lower(med)
+    if med == "ДА" or med == "Да" or med == "да":
+        print("Можно получить права")
+    else:
+        print("Нужна медицинская справка")
+else:
+    print("Слишком рано для получения прав")
+
+ #Задание 3
+num = int(input("Введите число: "))
+print("Исходное число: ")
+print(f"Десятичное: {num}")  
+print(f"Двоичное:  {bin(num)}")
+result_left =  num << 2 
+print("Сдвиг влево на 2 бита", result_left, bin(result_left))
+result_right = num >> 1
+print("Сдвиг вправо на 1 бит", result_right, bin(result_right))
+result_and = num and 15 
+print("Побитовое И с 15", result_and, bin(result_and))
+result_or =  num or 3 
+print("Побитовое ИЛИ с 3", result_or, bin(result_or))
+
+
+#Здание 4
+num1 = int(input("Введите  первое число: "))
+num2 = int(input("Введите второе число: "))
+operation = input("Введите операцию: ")
+if operation == "+":
+    print(num1 + num2)
+elif operation == "-":
+    print(num1-num2)
+elif operation == "*":
+    print(num1 * num2)
+elif operation == "/":
+    if num2 == 0:
+        print("Деление на ноль!")
+    else:
+        print(num1 /num2)
+elif operation == "%":
+    if num1 is None or num2 is None:
+        print("Оба числа должны быть целыми")
+    elif num2 == 0:
+        print("Деление на ноль!")
+    else:
+        print(num1 % num2)
+elif operation == "//":
+    if num1 is None or num2 is None:
+        print("Оба числа должны быть целыми")
+    if num2 == 0:
+        print("Деление на ноль!")
+    else:
+        print(num1 // num2)
+else:
+    print("Неизвестная операция")
+
+
+#Задание 5
+password = input("Введите пароль: ")
+lenght_ok = len(password)
+if lenght_ok >=8:
+    print("✓ Длина >= 8 символов")
+else:
+    print("X Длина >= 8 символов")
+number = any(char.isdigit() for char in password)
+if number:
+    print("✓ Содержит цифру")
+else:
+    print("X Содержит цифру")
+word_upper = any(char.isupper() for char in password)
+if word_upper:
+    print("✓ Содержит букву в верхнем регистре")
+else:
+    print("X Содержит букву в верхнем регистре")
+word_lower = any(char.islower() for char in password)
+if word_lower:
+    print("✓ Содержит букву в нижнем регистре")
+else:
+    print("X Содержит букву в нижнем регистре")
+special_simbols = any(char in "!@#$%^&*" for char in password)
+if special_simbols:
+    print("✓ Содержит специальный символ")
+else:
+    print("X Содержит специальный символ")
+if lenght_ok and number and word_upper and word_lower and special_simbols:
+    print("Пароль надежен")
+else: 
+    print("Пароль ненадежен")
