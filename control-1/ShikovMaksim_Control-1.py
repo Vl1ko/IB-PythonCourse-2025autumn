@@ -28,13 +28,13 @@ sdvig2 = celnum >> 1
 pobit1 = celnum & 15
 pobit2 = celnum | 3
 print(f"Исходное число: {celnum} - ({celnum:b})")
-print(f"Сдвиг в лево на 2: {sdvig1} - ({sdvig1:b})")
-print(f"Сдвиг в право на 1: {sdvig2} - ({sdvig2:b})")
+print(f"Сдвиг влево на 2: {sdvig1} - ({sdvig1:b})")
+print(f"Сдвиг вправо на 1: {sdvig2} - ({sdvig2:b})")
 print(f"Побитовое И c 15: {pobit1} - ({pobit1:b})")
 print(f"Побитовое ИЛИ c 3: {pobit2} - ({pobit2:b})")
 
 
-#Задани 4
+#Задание 4
 
 try:
     calcNum1 = float(input("Введите первое число: "))
