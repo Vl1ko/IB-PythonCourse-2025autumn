@@ -1,0 +1,200 @@
+#Задание 1
+def calculate (num1: float, num2: float, operation: str) -> float:
+    if operation == "+":
+        return num1+num2
+    elif operation == "-":
+        return num1-num2
+    elif operation == "*":
+        return num1*num2
+    elif operation == "/":
+        return num1/num2
+        if b == 0:
+            print("Деление на ноль невозможно")
+            return num1/num2
+    else:
+        print("Недопустимая операция")
+        return None
+def validate_number(input_str: str) -> float:
+    try:
+        number = float(input_str)
+        return number
+    except ValueError:
+        print("Ошибка: Введите число!")
+    except Exception as Err:
+        print(f"Ошибка: {Err}") 
+    
+def main():
+    num1 = int(input("Введите первое число: "))
+    num2 = int(input("Введите второе число: "))
+    operation = input("Введите операцию (+, -, *, /)")
+    result = calculate(num1, num2, operation)
+    print(f"Результат: {result}")
+
+main()
+  
+
+
+def get_exchange_rate(currency_code: str) -> float:
+    match currency_code.upper():
+        case "USD":
+            return 90.0
+        case "EUR":
+            return 98.5
+        case "GBP":
+            return 115.2
+        case "JPY":
+            return 0.6
+        case _:
+            raise ValueError(f"Неизвестная валюта {currency_code}")
+
+def convert_currency(amount_rub: float, currency_code: str) -> float:
+    exchange_rate = get_exchange_rate(currency_code)
+    return amount_rub / exchange_rate
+
+def display_result(amount_rub: float, currency_code: str, converted_amount: float):
+    print(f"Результат: {amount_rub} RUB = {converted_amount:.2f} {currency_code}")
+
+def main():
+    try:
+        curr = input("Введите код валюты (USD, EUR, GBP, CNY): ").strip()
+        rub = int(input("Введите сумму в RUB: "))
+        rate = get_exchange_rate(curr)
+        sum = convert_currency(rub, curr)
+        display_result(rub, curr, sum)
+    except ValueError:
+        print(f"Ошибка: Введено недопустимое значение!")
+    except Exception as Err:
+        print(f"Ошибка: {Err}")
+
+main()
+
+#Задание 3
+def get_season(season: int) -> str:
+    if season in (12,1,2):
+        return "Зима"
+    elif season in (3,4,5):
+        return "Весна"
+    elif season in (6,7,8):
+        return "Осень"
+    elif season in (9,10,11):
+        return "Лето"
+    else:
+        raise Exception("Некорректный номер месяца. Пожалуйста, введите число от 1 до 12")
+    
+def get_weather_recommendation(season: str, temperature: int) -> str:
+    if season == "Зима":
+        if temperature < - 10:
+            return "Очень холодно. Наденьте теплую одежду: пуховик, теплую шапку, шарф, перчатки, утепленные ботинки и термобелье"
+        elif temperature < 0:
+            return "Холодно. Наденьте теплую одежду: теплая куртка, шапка, шарф и перчатки"
+        else: 
+            return "Можно обойтись лёгкой зимней курткой"
+    
+    elif season == "Весна":
+        if temperature < 5:
+            return "Прохладно. Наденьте тёплую куртку и демисезонную обувь"
+        elif 10 <= temperature < 15:
+            return "Свежо. Наденьте легкую куртку или пальто"
+        else:
+            return "Тепло. Можно надеть легкую куртку"
+   
+    elif season == "Осень":
+        if temperature < 5:  
+            return "Тёплая куртка, шарф, перчатки"  
+        elif temperature < 15:  
+            return "Демисезонная куртка, тёплая обувь"  
+        else:  
+            return "Лёгкая осенняя куртка"
+    
+    elif season == 'лето':  
+        if temperature < 20:  
+            return "Лёгкая одежда, шорты или брюки"  
+        elif temperature < 30:  
+            return "Летняя одежда, головной убор"  
+        else:  
+            return "Максимально лёгкая одежда, старайтесь не находиться на солнце"
+    
+    else:  
+        return "Неизвестное время года"
+
+def validate_month(season: int) -> bool:
+    return 1 <= season <= 12
+
+def main():  
+    try:  
+        month = int(input("Введите номер месяца (1-12): "))  
+        if not validate_month(month):  
+            print("Ошибка: неверный номер месяца")  
+            return  
+              
+        temperature = int(input("Введите температуру: "))  
+          
+        season = get_season(month)  
+        recommendation = get_weather_recommendation(season, temperature)  
+          
+        print(f"Сезон: {season}")  
+        print(f"Рекомендация: {recommendation}")  
+          
+    except ValueError:  
+        print("Ошибка: введите корректные числовые значения")
+    except Exception as Err:
+        print(f"Ошибка: {Err}") 
+  
+main()
+
+#Задание 4
+def get_drink_price(drink_name: str) -> float:
+    match drink_name.lower():
+        case "капучино":
+            return 340.0
+        case "латте":
+            return 300.0
+        case "американо":
+            return 230.0
+        case "айс фрешпрессо":
+            return 360.0
+        case _:
+            return 0.0
+        
+def apply_discount(total_price: float, discount_type: str) -> float:
+    match discount_type.lower():  
+        case "none":  
+            return total_price  
+        case "student":  
+            return total_price * 0.9  
+        case "loyalty":  
+            return total_price * 0.85    
+        case "birthday":  
+            return total_price * 0.80    
+        case _:  
+            discount = 0.0
+    discount_amount = total_price * discount
+    return discount_amount
+
+def calculate_total(order_items: list, discount: str = "none") -> dict:
+    total_price = 0.0
+    for item in order_items:
+        total_price += get_drink_price(item)
+    discount_amount = apply_discount(total_price, discount)
+    final_price = total_price - discount_amount
+
+    return {
+        "total": final_price,
+        "discount": discount_amount
+    }
+ 
+
+order_items = []
+while True:
+    item = input("Введите название напитка (или 'стоп' для завершения заказа): ")
+    if item.lower() == "стоп":
+        break
+    order_items.append(item)
+
+discount_type = input("Введите тип скидки (student, regular, birthday или none): ")
+
+result = calculate_total(order_items, discount_type)
+
+print("Ваш заказ:", order_items)
+print("Применяемая скидка:", discount_type if discount_type else "нет")
+print(f"Итого к оплате: {result['total']} руб. (скидка {result['discount']} руб.).")
